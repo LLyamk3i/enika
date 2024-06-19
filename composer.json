@@ -2,10 +2,14 @@
     "name": "afriklabtech/enika",
     "type": "project",
     "description": "Afriklabtech Enika project",
-    "keywords": ["afriklabtech", "enika"],
+    "keywords": [
+        "afriklabtech",
+        "enika"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "filament/filament": "3.2.57",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9"
@@ -33,7 +37,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
