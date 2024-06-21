@@ -11,13 +11,28 @@ class Membership extends Model
 
     protected $fillable = ['user_id', 'group_id', 'status', 'accetpted_at', 'rejected_at'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    /**
+ * Get the user that owns the membership.
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
+public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 
-    public function group()
-    {
-        return $this->belongsTo(Groupe::class, 'group_id');
-    }
+    /**
+ * Get the group that the membership belongs to.
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ *
+ * @param string $related The related model class name.
+ * @param string $foreignKey The foreign key of the relationship.
+ *
+ * @throws \Exception If the related model class does not exist.
+ */
+public function group()
+{
+    return $this->belongsTo(Groupe::class, 'group_id');
+}
 }

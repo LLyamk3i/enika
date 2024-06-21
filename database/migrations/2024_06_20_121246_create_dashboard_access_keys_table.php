@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('contraint_acess');
             $table->string('value');
             $table->string('label');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

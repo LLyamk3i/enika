@@ -4,40 +4,39 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Ministry;
+use App\Models\Feedback;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Toggle;
-use Illuminate\Support\Facades\Number;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
-use App\Filament\Resources\MinistryResource\Pages;
+use App\Filament\Resources\FeedbackResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\MinistryResource\RelationManagers;
+use App\Filament\Resources\FeedbackResource\RelationManagers;
 
-class MinistryResource extends Resource
+class FeedbackResource extends Resource
 {
-    protected static ?string $model = Ministry::class;
+    protected static ?string $model = Feedback::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-library';
-protected static ?string $navigationLabel = 'Les Ministères';
-
+    protected static ?string $navigationIcon = 'heroicon-o-receipt-refund';
+    
+    protected static ?string $navigationLabel = 'Les Feedbacks';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')
+                TextInput::make('report_id')
                     ->required()
-                    ->maxLength(255)
-                    ->columnSpanFull(),
-                TextInput::make('description')
-                ->columnSpanFull()
-                    ->maxLength(255),
-                
+                    ->numeric(),
+                Textarea::make('Type')
+                    ->required(),
+                Toggle::make('status')
+                    ->required(),
             ]);
     }
 
@@ -45,11 +44,11 @@ protected static ?string $navigationLabel = 'Les Ministères';
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('name')->sortable()->searchable()->limit(27),
-                TextColumn::make('description')->sortable()->limit(27),
-                BooleanColumn::make('status')->sortable()->label('Status'),
-                TextColumn::make('created_at')->sortable()->limit(10),
+                TextColumn::make('report_id')->sortable()->searchable(),
+                TextColumn::make('Type')->sortable()->searchable(),
+                BooleanColumn::make('status')->sortable()->searchable(),
+                TextColumn::make('created_at')->sortable()->label('Created At')->dateTime(),
+           
             ])
             ->filters([
                 //
@@ -68,7 +67,7 @@ protected static ?string $navigationLabel = 'Les Ministères';
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageMinistries::route('/'),
+            'index' => Pages\ManageFeedback::route('/'),
         ];
     }
 }

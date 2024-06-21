@@ -11,6 +11,11 @@ class Responsible extends Model
 
     protected $fillable = ['name', 'providers_id', 'roles'];
 
+    /**
+     * Get the provider that owns the responsible.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function provider()
     {
         return $this->belongsTo(Provider::class, 'providers_id');
