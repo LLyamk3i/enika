@@ -2,30 +2,70 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Sector;
+use App\Models\Category;
 use Filament\Widgets\ChartWidget;
 
 class ReportsChart extends ChartWidget
 {
-    protected static ?string $heading = 'Chart';
+    protected static ?string $heading = 'Graphique des secteurs';
     protected static ?int $sort = 2;
-    protected static ?string $minHeight = '500px';
-
 
     protected function getData(): array
     {
-        return [
-            'datasets' => [
-                [
-                    'label' => 'Blog posts created',
-                    'data' => [0, 10, 5, 2, 21, 32, 45, 74, 65, 45, 77, 89,110,120, 130],
+        // Récupérer les données pour le graphique
+        $categories = Category::all();
+        $sectors = Sector::all();
+
+        $categoryData = [];
+        $sectorData = [];
+        $labels = [];
+
+        // Récupérer les données par catégorie
+        foreach ($categories as $category) {
+            $labels[] = $category->name;
+            $categoryData[] = 23;
+        }
+
+        // Récupérer les données par secteur
+        foreach ($sectors as $sector) {
+            $labels[] = $sector->name;
+            $sectorData[] = 10;
+        }
+
+        $data['labels'] = $labels;
+        $data['datasets'] = [
+            [
+                'label' => 'Reports by Category',
+                'data' => $categoryData,
+                'backgroundColor' => [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    '#4BC0C0',
+                    '#9966FF',
+                    '#FF9F40'
                 ],
             ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            [
+                'label' => 'Reports by Sector',
+                'data' => $sectorData,
+                'backgroundColor' => [
+                    '#FF9F40',
+                    '#4BC0C0',
+                    '#FF6384',
+                    '#9966FF',
+                    '#36A2EB',
+                    '#FFCE56',
+                ],
+            ],
         ];
+
+        return $data;
     }
 
     protected function getType(): string
     {
-        return 'line';
+        return 'doughnut';
     }
 }

@@ -37,6 +37,16 @@ class Groupe extends Model
         return $this->belongsTo(Location::class, 'locations_id');
     }
 
+      /**
+     * Get all events associated with the groupe.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'entity_id');
+    }
+ 
     /**
      * Get all memberships associated with the groupe.
      *

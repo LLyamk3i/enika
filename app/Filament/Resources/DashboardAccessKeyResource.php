@@ -24,6 +24,8 @@ class DashboardAccessKeyResource extends Resource
     protected static ?string $model = DashboardAccessKey::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-key';
+    protected static ?string $navigationGroup = 'Gestion des Ministères';
+
     protected static ?string $navigationLabel = 'Les clés D\'accès ';
 
 
@@ -68,7 +70,9 @@ class DashboardAccessKeyResource extends Resource
                  TextColumn::make('actor_id')->sortable()->searchable(),
                 TextColumn::make('actor_type')->sortable()->searchable(),
                 TextColumn::make('contraint_acess')->sortable()->searchable(),
-                TextColumn::make('value')->sortable()->searchable()->limit(15),
+                TextColumn::make('value')->sortable()->searchable()->limit(15)->copyable()
+                ->copyMessage('Color code copied')
+                ->copyMessageDuration(1500),
                 TextColumn::make('label')->sortable()->searchable(),
                 BooleanColumn::make('status')->sortable()->searchable(),
             ])

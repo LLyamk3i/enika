@@ -23,6 +23,7 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationGroup = 'Gestion des Ministères';
     protected static ?string $navigationLabel = 'Les Catégories ';
 
 

@@ -19,6 +19,7 @@ class ResponsibleResource extends Resource
     protected static ?string $model = Responsible::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+    protected static ?string $navigationGroup = 'Gestionnaire des utlisateurs';
     protected static ?string $navigationLabel = 'Les Responsables ';
 
 

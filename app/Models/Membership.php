@@ -31,7 +31,7 @@ public function user()
  *
  * @throws \Exception If the related model class does not exist.
  */
-public function group()
+public function groupe()
 {
     return $this->belongsTo(Groupe::class, 'group_id');
 }

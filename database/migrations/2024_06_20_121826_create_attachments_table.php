@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('report_id')->constrained('reports');
+            $table->foreignId('report_id');
             $table->string('file_path');
             $table->string('file_type');
             $table->string('collection');

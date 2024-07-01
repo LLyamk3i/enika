@@ -23,7 +23,8 @@ class FeedbackResource extends Resource
     protected static ?string $model = Feedback::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-receipt-refund';
-    
+    protected static ?string $navigationGroup = 'Gestionnaire des signalements';
+
     protected static ?string $navigationLabel = 'Les Feedbacks';
 
     public static function form(Form $form): Form

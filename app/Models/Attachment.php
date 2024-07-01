@@ -15,5 +15,10 @@ class Attachment extends Model
     {
         return $this->belongsTo(Report::class, 'report_id');
     }
+
+    public function actuality()
+    {
+        return $this->belongsTo(Actuality::class, );
+    }
     
 }

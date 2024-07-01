@@ -20,7 +20,8 @@ class OtpCodeResource extends Resource
     protected static ?string $model = OtpCodes::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-qr-code';
-protected static ?string $navigationLabel = 'Les code otp';
+    protected static ?string $navigationGroup = 'Gestionnaire des utlisateurs';
+    protected static ?string $navigationLabel = 'Les code otp';
 
 
     public static function form(Form $form): Form
@@ -38,7 +39,8 @@ protected static ?string $navigationLabel = 'Les code otp';
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')->sortable()->searchable(),
+                TextColumn::make('id')->label("ID")->sortable()->searchable(),
+                TextColumn::make('user.name')->sortable()->searchable(),
                 TextColumn::make('code')->sortable()->searchable(),
                 TextColumn::make('created_at')->sortable(),
                 TextColumn::make('expires_at')->sortable(),

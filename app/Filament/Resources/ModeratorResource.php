@@ -19,7 +19,8 @@ class ModeratorResource extends Resource
     protected static ?string $model = Moderator::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-protected static ?string $navigationLabel = 'Les moderateurs ';
+    protected static ?string $navigationGroup = 'Gestionnaire des utlisateurs';
+    protected static ?string $navigationLabel = 'Les moderateurs ';
 
 
     public static function form(Form $form): Form
@@ -39,7 +40,7 @@ protected static ?string $navigationLabel = 'Les moderateurs ';
                 TextColumn::make('entity_id')->sortable()->searchable(),
                 TextColumn::make('status')->sortable()->searchable(),
                 TextColumn::make('block_at')->sortable()->label('Blocked At')->dateTime(),
-           
+
             ])
             ->filters([
                 //

@@ -22,6 +22,7 @@ class SectorResource extends Resource
     protected static ?string $model = Sector::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-hashtag';
+    protected static ?string $navigationGroup = 'Gestion des Ministères';
     protected static ?string $navigationLabel = 'Les Secteurs';
 
 
@@ -47,9 +48,9 @@ class SectorResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('ministry.name')->label('Ministry')->limit(27),
+                TextColumn::make('ministry.name')->label('Ministry')->limit(25),
                 TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('description')->sortable()->searchable()->limit(27),
+                TextColumn::make('description')->sortable()->searchable()->limit(25),
                 TextColumn::make('created_at')->sortable()->searchable(),
             ])
             ->filters([

@@ -22,7 +22,8 @@ class NotificationResource extends Resource
     protected static ?string $model = Notification::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bell-alert';
-protected static ?string $navigationLabel = 'Les Notifications';
+    protected static ?string $navigationGroup = 'Espace Éditorial';
+    protected static ?string $navigationLabel = 'Les Notifications';
 
 
     public static function form(Form $form): Form
@@ -37,13 +38,13 @@ protected static ?string $navigationLabel = 'Les Notifications';
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')->sortable()->searchable(),
+                TextColumn::make('id')->label('ID')->sortable()->searchable(),
+                TextColumn::make('user.name')->sortable()->searchable(),
                 TextColumn::make('type')->sortable()->searchable(),
                 TextColumn::make('message')->sortable()->searchable(),
                 BooleanColumn::make('read')->sortable()->label('Read'),
-                TextColumn::make('read_at')->sortable()->label('Read At')->dateTime(),
                 TextColumn::make('created_at')->sortable()->label('Created At')->dateTime(),
-            
+
             ])
             ->filters([
                 //

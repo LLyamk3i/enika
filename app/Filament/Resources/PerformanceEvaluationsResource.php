@@ -3,25 +3,25 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use App\Models\PerformanceEvaluation;
+use App\Models\PerformanceEvaluations;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Columns\BooleanColumn;
-use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\PerformanceEvaluationsResource\Pages;
+use App\Filament\Resources\PerformanceEvaluationsResource\RelationManagers;
 
-class UserResource extends Resource
+class PerformanceEvaluationsResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = PerformanceEvaluation::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Gestionnaire des utlisateurs';
-    protected static ?string $navigationLabel = 'Les Utilisateurs';
+    protected static ?string $navigationIcon = 'heroicon-o-star';
+    protected static ?string $navigationGroup = 'Gestionnaire des signalements';
+    protected static ?string $navigationLabel = 'L\'évaluation des traitements';
 
     public static function form(Form $form): Form
     {
@@ -35,11 +35,12 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('email')->sortable()->searchable(),
-                BooleanColumn::make('founder')->sortable()->label('Founder'),
-                BooleanColumn::make('status')->sortable()->label('Status'),
-                TextColumn::make('created_at')->sortable()->label('Date'),
+                TextColumn::make('user.name')->sortable()->searchable(),
+                TextColumn::make('report.category.name')->sortable()->searchable(),
+                TextColumn::make('value')->sortable()->searchable(),
+                TextColumn::make('message')->sortable()->searchable(),
+                TextColumn::make('created_at'),
+                
             ])
             ->filters([
                 //
@@ -58,7 +59,7 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageUsers::route('/'),
+            'index' => Pages\ManagePerformanceEvaluations::route('/'),
         ];
     }
 }

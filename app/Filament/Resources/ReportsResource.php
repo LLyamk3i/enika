@@ -3,25 +3,25 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use App\Models\User;
 use Filament\Tables;
+use App\Models\Report;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Tables\Columns\BooleanColumn;
-use App\Filament\Resources\UserResource\Pages;
+use App\Filament\Resources\ReportsResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\ReportsResource\RelationManagers;
 
-class UserResource extends Resource
+class ReportsResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Report::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Gestionnaire des utlisateurs';
-    protected static ?string $navigationLabel = 'Les Utilisateurs';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
+    protected static ?string $navigationGroup = 'Gestionnaire des signalements';
+    protected static ?string $navigationLabel = 'Les Signalements';
+
 
     public static function form(Form $form): Form
     {
@@ -35,11 +35,13 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('email')->sortable()->searchable(),
-                BooleanColumn::make('founder')->sortable()->label('Founder'),
-                BooleanColumn::make('status')->sortable()->label('Status'),
-                TextColumn::make('created_at')->sortable()->label('Date'),
+                TextColumn::make('id')->label('ID')->sortable()->searchable(),
+                TextColumn::make('user.name')->label('Agent')->sortable()->searchable(),
+                TextColumn::make('category.name')->label('Signalement')->sortable()->searchable(),
+                TextColumn::make('enty_type')->label('Type Entité')->sortable()->searchable(),
+                TextColumn::make('status')->label('statut')->sortable(),
+                TextColumn::make('created_at')->sortable()->limit(11),
+                
             ])
             ->filters([
                 //
@@ -58,7 +60,7 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageUsers::route('/'),
+            'index' => Pages\ManageReports::route('/'),
         ];
     }
 }

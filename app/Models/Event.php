@@ -15,5 +15,18 @@ class Event extends Model
     {
         return $this->belongsTo(Report::class, 'entity_id');
     }
+
+    
+   
+    /**
+     * Get the groupe record associated with the event.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function groupe()
+    {
+        return $this->belongsTo(Groupe::class, 'entity_id');
+    }
+ 
     
 }

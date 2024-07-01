@@ -24,6 +24,7 @@ class EventResource extends Resource
     protected static ?string $model = Event::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+    protected static ?string $navigationGroup = 'Espace Éditorial';
     protected static ?string $navigationLabel = 'Les Événements';
 
 
@@ -61,23 +62,22 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')->label('ID')->sortable()->searchable(),
                 TextColumn::make('type')->sortable()->searchable(),
-                TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('description')->sortable()->searchable(),
-                TextColumn::make('enty_type')->sortable()->searchable(),
-                TextColumn::make('entity_id')->sortable()->searchable(),
-                TextColumn::make('event_date')->sortable(),
-                BooleanColumn::make('is_active')->sortable()->searchable(),
+                TextColumn::make('title')->label("Titre")->sortable()->searchable()->limit(25),
+                TextColumn::make('description')->sortable()->searchable()->limit(30),
+                TextColumn::make('enty_type')->label("Entité Type")->sortable()->searchable(),
+                TextColumn::make('groupe.name')->label("Entité")->sortable()->searchable(),
+                TextColumn::make('event_date')->label("Even. Date")->sortable(),
+                BooleanColumn::make('is_active')->label("Status"),
             ])
             ->filters([
                 SelectFilter::make('type')->options([
-                    'EventType1' => 'EventType1',
-                    'EventType2' => 'EventType2', // Ajoutez d'autres options selon vos besoins
                 ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

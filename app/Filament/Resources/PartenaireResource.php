@@ -23,7 +23,8 @@ class PartenaireResource extends Resource
     protected static ?string $model = Partenaire::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-arrow-path-rounded-square';
-protected static ?string $navigationLabel = 'Les Partenaires';
+    protected static ?string $navigationGroup = 'Gestionnaire de Composants';
+    protected static ?string $navigationLabel = 'Les Partenaires';
 
 
     public static function form(Form $form): Form
@@ -33,7 +34,7 @@ protected static ?string $navigationLabel = 'Les Partenaires';
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                
+
                 FileUpload::make('logo')->required()->columnSpanFull()->label('logo  de l\'entreprise'),
 
             ]);

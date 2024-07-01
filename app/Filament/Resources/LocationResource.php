@@ -20,7 +20,8 @@ class LocationResource extends Resource
     protected static ?string $model = Location::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
-protected static ?string $navigationLabel = 'Les Emplacements';
+    protected static ?string $navigationGroup = 'Gestionnaire de Composants';
+    protected static ?string $navigationLabel = 'Les Emplacements';
 
 
     public static function form(Form $form): Form
@@ -49,6 +50,7 @@ protected static ?string $navigationLabel = 'Les Emplacements';
     {
         return $table
             ->columns([
+                TextColumn::make('id')->label('ID')->sortable()->searchable(),
                 TextColumn::make('city')->sortable()->searchable(),
                 TextColumn::make('prefecture')->sortable()->searchable(),
                 TextColumn::make('township')->sortable()->searchable(),

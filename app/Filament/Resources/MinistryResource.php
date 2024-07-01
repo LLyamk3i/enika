@@ -23,7 +23,9 @@ class MinistryResource extends Resource
     protected static ?string $model = Ministry::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-library';
-protected static ?string $navigationLabel = 'Les Ministères';
+    protected static ?string $navigationGroup = 'Gestion des Ministères';
+
+    protected static ?string $navigationLabel = 'Les Ministères';
 
 
     public static function form(Form $form): Form
@@ -35,9 +37,9 @@ protected static ?string $navigationLabel = 'Les Ministères';
                     ->maxLength(255)
                     ->columnSpanFull(),
                 TextInput::make('description')
-                ->columnSpanFull()
+                    ->columnSpanFull()
                     ->maxLength(255),
-                
+
             ]);
     }
 

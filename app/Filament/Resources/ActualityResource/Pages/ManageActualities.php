@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\ActualityResource\Pages;
 
-use App\Filament\Resources\ActualityResource;
 use Filament\Actions;
+use App\Models\Attachment;
 use Filament\Resources\Pages\ManageRecords;
+use App\Filament\Resources\ActualityResource;
 
 class ManageActualities extends ManageRecords
 {
@@ -16,4 +17,5 @@ class ManageActualities extends ManageRecords
             Actions\CreateAction::make(),
         ];
     }
+
 }
