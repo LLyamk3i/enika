@@ -1,57 +1,73 @@
-<div class="shadow-lg w-72  my-2 border rounded-xl">
+<div class="shadow-xl w-72  my-2 border rounded-xl">
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
 
-    <div class="flex overflow-x-auto">
-        <div class="min-w-40 h-28">
-            <img class="min-w-40 h-28 rounded-xl"
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+      <div class="flex justify-between items-center m-2">
+        <div class=" flex items-center ">
+            <span class="relative flex h-3 w-3 mr-3">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-600 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-gray-900"></span>
+            </span>
+            <div>
+                <div class="">Pollution de l’aire</div>
+                <div class="text-xs text-gray-500">02-07-2024 17:02 </div>
+                
+            </div>
+        </div>
+        <div class="flex items-center py-1">
+           
+
+            <div class="hs-dropdown relative inline-flex">
+                <button id="hs-dropdown-custom-icon-trigger" type="button" class="hs-dropdown-toggle flex justify-center items-center size-6 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                  <svg class="flex-none size-3 text-gray-600 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </button>
+              
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-32 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700" aria-labelledby="hs-dropdown-custom-icon-trigger">
+                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700" href="#">
+                    voir plus
+                  </a>
+                 
+                </div>
+              </div>
+
+           
+        </div>
+    </div>
+
+    <div class="flex overflow-x-auto no-scrollbar">
+        <div class="min-w-40 h-32">
+            <img class="min-w-40 h-32 rounded-xl"
                 src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
-        <div class="min-w-40 h-28 mx-1">
-            <img class="min-w-40 h-28 rounded-xl"
+        <div class="min-w-40 h-32 mx-1">
+            <img class="min-w-40 h-32 rounded-xl"
                 src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
-        <div class="min-w-40 h-28 mx-1">
-            <img class="min-w-40 h-28 rounded-xl"
+        <div class="min-w-40 h-32 mx-1">
+            <img class="min-w-40 h-32 rounded-xl"
                 src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
-        <div class="min-w-40 h-28 mx-1">
-            <img class="min-w-40 h-28 rounded-xl"
+        <div class="min-w-40 h-32 mx-1">
+            <img class="min-w-40 h-32 rounded-xl"
                 src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
-        <div class="min-w-40 h-28 ">
-            <img class="min-w-40 h-28 rounded-xl"
+        <div class="min-w-40 h-32">
+            <img class="min-w-40 h-32 rounded-xl"
                 src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
     </div>
-    <div class="p-3">
+    <div class="p-2">
 
-        <div class="text-sm">Description du signalement wire polluttion de l'aire operation effectué </div>
 
-        <div class="flex justify-between items-center mt-1">
-            <div class=" flex items-center ">
-                <span class="relative flex h-3 w-3 mr-3">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-600 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-gray-900"></span>
-                </span>
-                <div>
-                    <div class="text-base">Pollution de l’aire</div>
-                </div>
-            </div>
-            <div class="flex items-center py-1">
-                <span class="relative flex h-4 w-4 mr-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-clock-8">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 8 14" />
-                    </svg>
-                </span>
-
-                <div class="h-4">
-                    <div class="text-sm font-bold">17:02</div>
-                </div>
-            </div>
-        </div>
+      
 
 
         <div class="flex items-center ">
