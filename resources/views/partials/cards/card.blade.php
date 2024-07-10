@@ -1,20 +1,10 @@
-<div class="shadow-xl w-72  my-2 border rounded-xl">
-    <style>
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* Internet Explorer 10+ */
-            scrollbar-width: none;  /* Firefox */
-        }
-    </style>
+<div class="shadow-xl w-72  my-2 border rounded-xl relative">
       <div class="flex justify-between items-center m-2">
         <div class=" flex items-center ">
-            <span class="relative flex h-3 w-3 mr-3">
+            <span class="relative flex h-4 w-4 mr-3">
                 <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-600 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-gray-900"></span>
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-600 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-4 w-4 bg-gray-900"></span>
             </span>
             <div>
                 <div class="">Pollution de l’aire</div>
@@ -118,4 +108,5 @@
         </div>
 
     </div>
+
 </div>
